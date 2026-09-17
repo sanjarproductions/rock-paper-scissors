@@ -1,0 +1,18 @@
+.theme__toggle {
+  padding: 10px;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.toggle__btn {
+  cursor: pointer;
+  border: none;
+  background: transparent;
+  width: 88px;
+  height: 88px;
+  transition: 300ms;
+}
+
+.toggle__btn:hover {
+  transform: scale(1.02);
+}

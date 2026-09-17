@@ -4,17 +4,15 @@ import { useDispatch, useSelector } from "react-redux";
 
 import scissorsLight from "./assets/2.svg";
 import rockLight from "./assets/3.svg";
-import darkModeIcon from "./assets/moon.svg";
 import paperDark from "./assets/paper-dark.svg";
 import paperLight from "./assets/paper-light.svg";
 import rockDark from "./assets/rock.svg";
 import scissorsDark from "./assets/scissors-dark.svg";
-import lightModeIcon from "./assets/sun.svg";
+import ThemeToggle from "./components/theme/ThemeToggle";
 import playerMove from "./redux/actions/playerMoveActions";
 import robotMove from "./redux/actions/robotMoveActions";
 import roundResetActions from "./redux/actions/roundResetActions";
 import roundResult from "./redux/actions/roundResultActions";
-import themeActions from "./redux/actions/themeActions";
 
 import styles from "./App.module.css";
 
@@ -32,18 +30,8 @@ function App() {
     setPreview(!preview);
   };
 
-  const changeTheme = () => {
-    dispatch(themeActions());
-  };
-
   const play = (move) => {
-    if (move == "rock") {
-      dispatch(playerMove(move));
-    } else if (move == "paper") {
-      dispatch(playerMove(move));
-    } else {
-      dispatch(playerMove(move));
-    }
+    dispatch(playerMove(move));
 
     // random choise of the robot
     let robotsMove = moves[Math.floor(Math.random() * moves.length)];
@@ -114,20 +102,10 @@ function App() {
     return (
       <>
         <div className={theme ? styles.wrapper : styles["wrapper-dark"]}>
-          <div className={styles.theme__toggle}>
-            {theme ? (
-              <button className={styles.toggle__btn} onClick={changeTheme}>
-                <img src={darkModeIcon} alt="" />
-              </button>
-            ) : (
-              <button className={styles.toggle__btn} onClick={changeTheme}>
-                <img src={lightModeIcon} alt="" />
-              </button>
-            )}
-          </div>
+          <ThemeToggle />
 
           <div className={styles.popup__container}>
-            <div className={theme ? "content" : "content-dark"}>
+            <div className={theme ? styles.content : styles["content-dark"]}>
               <button onClick={startGame}>Play</button>
               <b>
                 Rock Paper Scissors <br /> The game
@@ -141,17 +119,7 @@ function App() {
     return (
       <>
         <div className={theme ? styles.wrapper : styles["wrapper-dark"]}>
-          <div className={styles.theme__toggle}>
-            {theme ? (
-              <button className={styles.toggle__btn} onClick={changeTheme}>
-                <img src={darkModeIcon} alt="" />
-              </button>
-            ) : (
-              <button className={styles.toggle__btn} onClick={changeTheme}>
-                <img src={lightModeIcon} alt="" />
-              </button>
-            )}
-          </div>
+          <ThemeToggle />
 
           <div className={styles.container}>
             <h1>Rock Paper Scissors</h1>

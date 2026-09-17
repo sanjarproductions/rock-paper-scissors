@@ -29,7 +29,6 @@
 
 .content button {
   background: #df2e38;
-  /* padding: 16px 8px; */
   width: 168px;
   height: 90px;
   border-radius: 16px;
@@ -49,25 +48,6 @@
   font-size: 37px;
   font-weight: 700;
   color: #070a52;
-}
-
-.theme__toggle {
-  padding: 10px;
-  display: flex;
-  justify-content: flex-end;
-}
-
-.toggle__btn {
-  cursor: pointer;
-  border: none;
-  background: transparent;
-  width: 88px;
-  height: 88px;
-  transition: 300ms;
-}
-
-.toggle__btn:hover {
-  transform: scale(1.02);
 }
 
 /* main game */
